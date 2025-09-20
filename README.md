@@ -38,4 +38,9 @@
 * Install the dependencies
     * pip install -r requirements.txt
 
-* Run the Pipeline
+* Run as below:
+    * eda
+    * data_preprocessing
+    * model
+    * insights
+    * pipeline
