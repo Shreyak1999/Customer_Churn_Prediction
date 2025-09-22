@@ -1,7 +1,7 @@
 # Customer Churn Prediction
 
 
-**Overview** : This project uses ***PySpark*** to build a scalable pipeline that predicts the likelihood of churn based on customer demographics, account details, and usage behavior. 
+**Overview** : This project aims to build a scalable pipeline that predicts the likelihood of churn based on customer demographics, account details, and usage behavior. 
 
 **Goal of the Project**: Predict whether a customer is likely to churn (cancel subscription/stop using service).
 
@@ -10,7 +10,6 @@
 
 ## Tech Stack:
 
-* PySpark (Spark SQL, MLlib, DataFrames, Pipelines)
 * Python 3.8+
 * VS Code
 * Pandas Matplotlib
