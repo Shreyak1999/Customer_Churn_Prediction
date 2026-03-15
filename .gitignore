@@ -1,0 +1,73 @@
+# -----------------------------
+# Python
+# -----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# -----------------------------
+# Virtual environments
+# -----------------------------
+venv/
+.venv/
+env/
+
+# -----------------------------
+# Jupyter / notebooks
+# -----------------------------
+.ipynb_checkpoints/
+
+# -----------------------------
+# Logs
+# -----------------------------
+logs/
+*.log
+
+# -----------------------------
+# Environment / secrets
+# -----------------------------
+.env
+.env.*
+config/db_config.yaml
+
+# -----------------------------
+# OS / Editor files
+# -----------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# -----------------------------
+# Build / packaging
+# -----------------------------
+build/
+dist/
+*.egg-info/
+
+# -----------------------------
+# Model artifacts
+# -----------------------------
+models/*.pkl
+models/*.joblib
+models/*.json
+
+# -----------------------------
+# Generated data artifacts
+# -----------------------------
+data/processed/*.csv
+data/feature_store/*.parquet
+
+# -----------------------------
+# Streamlit cache (optional)
+# -----------------------------
+.streamlit/
+
+# -----------------------------
+# Airflow artifacts (if local)
+# -----------------------------
+airflow.db
+airflow.cfg
+airflow-webserver.pid
+logs/scheduler/
+logs/webserver/
