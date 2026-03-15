@@ -6,12 +6,21 @@ from loguru import logger
 
 
 # -----------------------------
-# Load configuration
+# Load main pipeline configuration
 # -----------------------------
-def load_config():
+def load_main_config():
     with open("config/config.yaml", "r") as file:
         config = yaml.safe_load(file)
     return config
+
+
+# -----------------------------
+# Load database configuration
+# -----------------------------
+def load_db_config():
+    with open("config/db_config.yaml", "r") as file:
+        db_config = yaml.safe_load(file)
+    return db_config
 
 
 # -----------------------------
@@ -26,11 +35,11 @@ def setup_logging(log_path):
 # Create database engine
 # -----------------------------
 def get_postgres_engine(db_config):
-    user = db_config["user"]
-    password = db_config["password"]
-    host = db_config["host"]
-    port = db_config["port"]
-    database = db_config["database"]
+    user = db_config["database"]["user"]
+    password = db_config["database"]["password"]
+    host = db_config["database"]["host"]
+    port = db_config["database"]["port"]
+    database = db_config["database"]["database"]
 
     connection_string = (
         f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{database}"
@@ -53,9 +62,10 @@ def load_dataframe_to_postgres(df, table_name, engine, if_exists="replace"):
 # Main load function
 # -----------------------------
 def run_postgres_load():
-    config = load_config()
-    log_path = config["logging"]["log_file"]
+    config = load_main_config()
+    db_config = load_db_config()
 
+    log_path = config["logging"]["log_file"]
     setup_logging(log_path)
 
     logger.info("Starting PostgreSQL load process")
@@ -71,7 +81,6 @@ def run_postgres_load():
     logger.info(f"Feature store data shape: {feature_df.shape}")
 
     # Get database engine
-    db_config = config["database"]
     engine = get_postgres_engine(db_config)
 
     # Load to PostgreSQL
