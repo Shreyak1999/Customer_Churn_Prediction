@@ -1,0 +1,85 @@
+# =========================
+
+# Project Configuration
+
+# =========================
+
+project:
+name: telco_ai_data_pipeline
+version: 1.0
+
+# =========================
+
+# Data Paths
+
+# =========================
+
+data:
+raw_data_path: data/raw/telco_churn.csv
+processed_data_path: data/processed/churn_cleaned.parquet
+feature_store_path: data/feature_store/churn_features.parquet
+
+# =========================
+
+# Database Configuration
+
+# =========================
+
+database:
+host: localhost
+port: 5432
+db_name: telco_churn_db
+user: postgres
+password: postgres
+
+# =========================
+
+# Model Configuration
+
+# =========================
+
+model:
+type: xgboost
+test_size: 0.2
+random_state: 42
+model_output_path: models/churn_model.pkl
+
+# =========================
+
+# Feature Engineering
+
+# =========================
+
+features:
+target_column: Churn
+categorical_columns:
+- gender
+- Partner
+- Dependents
+- PhoneService
+- MultipleLines
+- InternetService
+- OnlineSecurity
+- OnlineBackup
+- DeviceProtection
+- TechSupport
+- StreamingTV
+- StreamingMovies
+- Contract
+- PaperlessBilling
+- PaymentMethod
+
+numerical_columns:
+- tenure
+- MonthlyCharges
+- TotalCharges
+
+# =========================
+
+# Logging
+
+# =========================
+
+logging:
+log_file: logs/pipeline.log
+log_level: INFO

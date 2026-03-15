@@ -1,0 +1,13 @@
+pandas
+numpy
+scikit-learn
+xgboost
+sqlalchemy
+psycopg2-binary
+pyyaml
+loguru
+fastapi
+uvicorn
+streamlit
+mlflow
+great-expectations
